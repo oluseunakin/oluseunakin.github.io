@@ -1,7 +1,4 @@
-const host = "localhost"
-const port = 9000
-const scheme = 'http'
-const baseURL = `${scheme}://${host}:${port}`
+const baseURL = "https://portfolioserver-c6d2.onrender.com"
 
 function init() {
     const main = document.getElementById('main')
