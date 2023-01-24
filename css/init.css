@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: cursive;
+    padding: 0;
+    list-style-type: none;
+}
+a{
+    color: rgba(0, 0, 250, 1);
+}
+body {
+    background-image: url(../background.jpg) ;
+    color: white;
+    background-size: cover;
+}
+.imgdiv{
+    border-radius: 50%;
+}
+img {
+    max-width: 100%;
+}

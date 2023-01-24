@@ -1,0 +1,19 @@
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+main > p {
+    margin: 20px;
+    font-size: larger;
+}
+header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px;
+}
+header > div:first-of-type {
+    display: flex;
+    justify-content: center;
+}

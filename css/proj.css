@@ -1,0 +1,35 @@
+body {
+    padding: 10px;
+}
+body > div:first-of-type > div:first-of-type{ 
+    margin: 4vh auto; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.imageGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0 5px;
+}
+.imageDiv img{
+    max-height: 400px;
+    margin: 0 auto;
+}
+.imageDiv {
+    margin: 5px;
+}
+@media screen and (min-width: 1200px) {
+    .imageGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+        margin: 0 5px;
+    }
+    .imageDiv {
+        display: flex;
+    }
+}
+
+
