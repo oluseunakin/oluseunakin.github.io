@@ -1,4 +1,4 @@
-const baseURL = "https://portfolioserver-c6d2.onrender.com"
+const baseURL = "https://portfolioserver-theta.vercel.app/"
 
 function init() {
     const main = document.getElementById('main')
