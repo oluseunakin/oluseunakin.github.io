@@ -1,4 +1,4 @@
-const baseURL = "https://portfolioserver-theta.vercel.app/"
+const baseURL = "https://webserver.herokuapp.com"
 
 function init() {
     const main = document.getElementById('main')
