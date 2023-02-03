@@ -20,10 +20,12 @@ function init() {
           const title = document.createElement("h1");
           const description = document.createElement("p");
           const stack = document.createElement("h3");
+          const s = document.createElement("code")
           main.innerHTML = "";
           title.innerText = name;
           description.innerText = proj.description;
-          stack.innerText = proj.tech
+          s.innerText = proj.tech
+          stack.appendChild(s)
           main.appendChild(title);
           main.appendChild(stack);
           main.appendChild(description);
