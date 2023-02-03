@@ -4,14 +4,18 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     padding: 0;
     list-style-type: none;
+    background-color: aqua;
 }
-a{
-    color: rgba(0, 0, 250, 1);
+header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
 }
-body {
-    background-image: url(../background.jpg) ;
-    color: white;
-    background-size: cover;
+header > div:first-of-type {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
 }
 .imgdiv{
     border-radius: 50%;
