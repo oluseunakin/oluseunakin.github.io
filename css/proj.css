@@ -1,17 +1,11 @@
-body {
-    padding: 10px;
-}
-body > div:first-of-type > div:first-of-type{ 
-    margin: 4vh auto; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.imageGrid {
+main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin: 0 5px;
+    margin: 5px;
+}
+h1, h3 {
+    margin-bottom: 10px;
 }
 .imageDiv img{
     max-height: 400px;

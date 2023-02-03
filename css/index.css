@@ -1,25 +1,10 @@
 body > div:first-of-type{ 
     display: flex;
     flex-direction: column;
-    align-self: center; 
+    align-items: center; 
 }
-footer {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-    font-size: larger;
-}
-footer button {
-    color: goldenrod;
-    border: 0;
-    background: none;
-    text-decoration: underline;
-    margin-bottom: 10px;
-    cursor: pointer;
-    font-size: inherit;
-}
-footer a {
-    font-style: inherit;
+footer a{
+    margin: 0 10px;
 }
 main div:first-child, form {
     display: flex;
@@ -36,8 +21,8 @@ textarea, form > div {
 #content {
     font-size: large;
     margin-top: 40px;
+    padding: 0 20px;
     margin-bottom: 10px;
-    padding: 0 10%;
 }
 #content > p:first-of-type {
     margin: 10px 5px;
