@@ -6,6 +6,9 @@
     list-style-type: none;
     background-color: aqua;
 }
+body {
+    padding: 10px;
+}
 header {
     display: flex;
     align-items: center;
