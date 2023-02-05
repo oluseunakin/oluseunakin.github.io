@@ -20,8 +20,12 @@ header > div:first-of-type {
     justify-content: center;
     margin: 10px 0;
 }
+.imgD {
+    width: 20%;
+}
 .imgdiv{
     border-radius: 50%;
+
 }
 img {
     max-width: 100%;

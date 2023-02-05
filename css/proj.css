@@ -4,7 +4,10 @@ main {
     justify-content: space-around;
     margin: 5px;
 }
-h1, h3 {
+h1 {
+    margin-bottom: 5px;
+}
+h4 {
     margin-bottom: 10px;
 }
 .imageDiv img{
