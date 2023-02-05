@@ -10,6 +10,9 @@ h1 {
 h4 {
     margin-bottom: 10px;
 }
+header p:last-child {
+    margin-top: 10px;
+}
 .imageDiv img{
     max-height: 400px;
     margin: 0 auto;
