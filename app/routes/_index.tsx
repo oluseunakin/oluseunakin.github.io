@@ -22,7 +22,7 @@ export const links: LinksFunction = () => {
 };
 
 export const loader = async () => {
-  /* return new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     onValue(
       ref(database, "portfolio"),
       (snapshot) => {
@@ -32,8 +32,7 @@ export const loader = async () => {
         reject(error);
       }
     );
-  }) */;
-  return null
+  }) 
 };
 
 export default function Index() {
