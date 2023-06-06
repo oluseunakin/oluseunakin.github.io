@@ -22,7 +22,7 @@ export const links: LinksFunction = () => {
 };
 
 export const loader = async () => {
-  return new Promise((resolve, reject) => {
+  /* return new Promise((resolve, reject) => {
     onValue(
       ref(database, "portfolio"),
       (snapshot) => {
@@ -32,7 +32,8 @@ export const loader = async () => {
         reject(error);
       }
     );
-  });
+  }) */;
+  return null
 };
 
 export default function Index() {
@@ -40,7 +41,7 @@ export default function Index() {
 
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <Menu projects={projects} />
+      {projects && <Menu projects={projects} />}
       <header>
         <h1>Oluseun Akindoyin</h1>
         <h4>Scroll to see amazing projects</h4>

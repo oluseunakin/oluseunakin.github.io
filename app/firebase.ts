@@ -11,7 +11,7 @@ const firebaseConfig = {
     appId: process.env.appId,
     measurementId: process.env.measurementId,
 };
-console.log('hi')
+
 const app = initializeApp(firebaseConfig)
 export const database = getDatabase(app)
 export const storage = getStorage(app)
