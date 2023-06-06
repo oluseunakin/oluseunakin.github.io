@@ -1,0 +1,71 @@
+@keyframes carousel {
+  from {
+    transform: translateX(0) scale(1);
+  }
+  to {
+    transform: translateX(100%) scale(1.5);
+  }
+}
+.menu {
+  display: flex;
+}
+.menuitems {
+  border: 1px solid burlywood;
+  background-color: mediumturquoise;
+  margin-top: 3px;
+  padding: 2%;
+  padding-top: 5%;
+  position: fixed;
+  z-index: 100000;
+  left: 0;
+  right: 0;
+  height: 60%;
+  border-radius: 0 20px 20px 0;
+  text-align: center;
+}
+header {
+    margin-top: -3vw;
+}
+header > h1 {
+  display: flex;
+  justify-content: center;
+}
+.project {
+    background-color: #afcdcd;
+    margin: 15px 0;
+}
+.project > div:first-of-type {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.project > p {
+    padding-left: 5px;
+}
+.project h2 {
+    text-align: center;
+    color: darkblue;
+    letter-spacing: 5px;
+}
+.pics {
+  display: flex;
+  gap: 10px;
+  overflow: hidden;
+  margin-top: 30px;
+}
+.pics > div {
+  display: flex;
+  flex: 0 0 100%;
+  transition: translate 3s ease-in-out;
+}
+.pics > div img {
+  max-width: 100%;
+}
+@media screen and (min-width: 40em) {
+  .menuitems {
+    width: 20vw;
+  }
+  .pics > div {
+    flex: 1;
+  }
+}

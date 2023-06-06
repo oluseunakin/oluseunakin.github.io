@@ -1,0 +1,15 @@
+.addproj {
+  display: flex;
+  flex-direction: column;
+  height: 97vh;
+  justify-content: center;
+  align-items: center;
+}
+.addproj form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.addproj form * {
+  text-align: center;
+}
