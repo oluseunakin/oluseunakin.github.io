@@ -3,7 +3,6 @@ import { Link, useLoaderData } from "@remix-run/react";
 import { ref, onValue } from "firebase/database";
 import { database } from "~/firebase";
 import styles from "../styles/_index.css";
-import initStyle from "../styles/init.css";
 import { Menu } from "~/components/menu";
 import type { LinksFunction } from "@remix-run/react/dist/routeModules";
 import { Media } from "~/components/Media";
@@ -19,10 +18,7 @@ export const meta: V2_MetaFunction = () => {
 };
 
 export const links: LinksFunction = () => {
-  return [
-    { href: styles, rel: "stylesheet" },
-    { rel: "stylesheet", href: initStyle },
-  ];
+  return [{ href: styles, rel: "stylesheet" }];
 };
 
 export const loader = async () => {

@@ -11,10 +11,9 @@ import { database, storage } from "~/firebase";
 import type { ActionArgs } from "@remix-run/node";
 import type { LinksFunction } from "@remix-run/react/dist/routeModules";
 import styles from "../styles/addproj.css";
-import initStyle from "../styles/init.css";
 
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: styles }, { rel: 'stylesheet', href: initStyle}];
+  return [{ rel: "stylesheet", href: styles }];
 };
 
 export const loader = () => {
