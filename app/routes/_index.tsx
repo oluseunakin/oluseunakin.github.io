@@ -35,7 +35,7 @@ export const loader = async () => {
   }) 
   
   const ap = await p
-  console.log(ap)
+  console.log('ok')
   return json(ap)
 };
 
