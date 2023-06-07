@@ -33,9 +33,9 @@ export const loader = async () => {
       }
     );
   }) 
-  
+  console.log(database)
   const ap = await p
-  console.log('ok')
+  
   return json(ap)
 };
 
