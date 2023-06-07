@@ -26,10 +26,10 @@ export const loader = async () => {
     onValue(
       ref(database, "portfolio"),
       (snapshot) => {
-        resolve(snapshot.val());
+        return resolve(snapshot.val());
       },
       (error) => {
-        reject(error);
+        return reject(error);
       }
     );
   }) 
