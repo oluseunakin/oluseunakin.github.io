@@ -22,6 +22,7 @@ export const links: LinksFunction = () => {
 };
 
 export const loader = async () => {
+  console.log('hey')
   const p = new Promise((resolve, reject) => {
     onValue(
       ref(database, "portfolio"),
@@ -33,8 +34,9 @@ export const loader = async () => {
       }
     );
   }) 
+  console.log(p)
   const ap = await p
-  console.log(ap)
+  
   return json(ap)
 };
 
