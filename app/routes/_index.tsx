@@ -22,17 +22,18 @@ export const links: LinksFunction = () => {
 };
 
 export const loader = async () => {
-  return new Promise((resolve, reject) => {
+  const p = new Promise((resolve, reject) => {
     onValue(
       ref(database, "portfolio"),
       (snapshot) => {
-        return resolve(snapshot.val());
+        resolve(snapshot.val());
       },
       (error) => {
-        return reject(error);
+        reject(error);
       }
     );
   }) 
+  return await p
 };
 
 export default function Index() {

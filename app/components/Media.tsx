@@ -23,7 +23,7 @@ export const Media = (props: { sources: string[] }) => {
           const x = Number(oldX);
           const clientWidth = md.clientWidth;
           if (i === length - 1) {
-            md.style.translate = `${-i * clientWidth + x - 20}px`;
+            md.style.translate = `${-i * clientWidth + x - (i * 10)}px`;
             i = 0;
           } else {
             md.style.translate = `${clientWidth + x + 10}px`;
