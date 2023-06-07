@@ -1,4 +1,4 @@
-import type { V2_MetaFunction } from "@remix-run/node";
+import { V2_MetaFunction, json } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import { ref, onValue } from "firebase/database";
 import { database } from "~/firebase";
@@ -33,7 +33,9 @@ export const loader = async () => {
       }
     );
   }) 
-  return await p
+  const ap = await p
+  console.log(ap)
+  return json(ap)
 };
 
 export default function Index() {
