@@ -1,6 +1,7 @@
 *{
   font-family: sans-serif;
   box-sizing: content-box;
+  margin: 0;
 }
 @keyframes spinner {
   from {
@@ -35,5 +36,5 @@ button:hover {
   cursor: pointer;
 }
 h1 {
-  font-size: 5vw;
+  font-size: 2rem;
 }

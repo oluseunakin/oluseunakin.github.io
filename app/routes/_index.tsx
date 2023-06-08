@@ -64,9 +64,6 @@ export default function Index() {
                 <div>
                   <h2>{name}</h2>
                   <div>
-                    <Link to={link}>{link}</Link>
-                  </div>
-                  <div>
                     {typeof tech === "string" ? (
                       <code>{tech}</code>
                     ) : (
@@ -74,6 +71,9 @@ export default function Index() {
                         <code key={i}>{t}</code>
                       ))
                     )}
+                  </div>
+                  <div>
+                    <Link to={link}>{link}</Link>
                   </div>
                 </div>
                 <p>{description}</p>

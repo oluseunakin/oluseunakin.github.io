@@ -7,7 +7,7 @@ export const Menu = (props: { projects: string[] }) => {
   return (
     <div>
       <div className="menu">
-        <button
+        <button className="material-symbols-outlined"
           onClick={(e) => {
             setMenu((prevMenu) => ({
               display: !prevMenu.display,
