@@ -21,6 +21,7 @@ export const loader = () => {
 };
 
 export const action = async ({ request }: ActionArgs) => {
+  const contentTypes = Array<string>()
   const data = await unstable_parseMultipartFormData(
     request,
     unstable_composeUploadHandlers(
@@ -44,7 +45,9 @@ export const action = async ({ request }: ActionArgs) => {
         await uploadBytes(storageRef, dataAsUint8, {
           contentType,
         });
-        return await getDownloadURL(storageRef);
+        const url = await getDownloadURL(storageRef);
+        contentTypes.push(contentType)
+        return url
       },
       unstable_createMemoryUploadHandler()
     )
@@ -55,7 +58,8 @@ export const action = async ({ request }: ActionArgs) => {
   const description = data.get("description");
   const techs = data.get("tech") as string;
   let tech: string | string[] = techs;
-  const media = data.getAll("media");
+  const m = data.getAll("media");
+  const media = m.map((mm, i) => ({url: mm, ct: contentTypes[i]}))
   if (!link.startsWith("https://")) link = `https://${link}`;
   if (techs.includes(",")) tech = techs.split(",");
   await set(databaseRef, { name, link, tech, media, description });

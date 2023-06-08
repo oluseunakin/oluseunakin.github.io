@@ -1,11 +1,12 @@
-import { V2_MetaFunction, json } from "@remix-run/node";
+import type { V2_MetaFunction} from "@remix-run/node";
+import { json } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import { ref, onValue } from "firebase/database";
 import { database } from "~/firebase";
 import styles from "../styles/_index.css";
 import { Menu } from "~/components/menu";
 import type { LinksFunction } from "@remix-run/react/dist/routeModules";
-import { Media } from "~/components/Media";
+import { MediaComponent } from "~/components/Media";
 
 export const meta: V2_MetaFunction = () => {
   return [
@@ -33,9 +34,7 @@ export const loader = async () => {
       }
     );
   }) 
-  console.log(database)
   const ap = await p
-  
   return json(ap)
 };
 
@@ -78,7 +77,7 @@ export default function Index() {
                   </div>
                 </div>
                 <p>{description}</p>
-                {typeof media[0] !== "object" && <Media sources={media} />}
+                <MediaComponent sources={media} />
               </div>
             );
           })}
