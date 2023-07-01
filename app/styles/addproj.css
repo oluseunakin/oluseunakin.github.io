@@ -4,6 +4,7 @@
   height: 97vh;
   justify-content: center;
   align-items: center;
+  gap: 40px;
 }
 .addproj form {
   display: flex;
@@ -12,4 +13,5 @@
 }
 .addproj form * {
   text-align: center;
+  padding: 10px;
 }

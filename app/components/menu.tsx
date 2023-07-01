@@ -7,7 +7,7 @@ export const Menu = (props: { projects: string[] }) => {
   return (
     <div>
       <div className="menu">
-        <button className="material-symbols-outlined"
+        <button
           onClick={(e) => {
             setMenu((prevMenu) => ({
               display: !prevMenu.display,
@@ -15,7 +15,7 @@ export const Menu = (props: { projects: string[] }) => {
             }));
           }}
         >
-          Menu
+          <span className="material-symbols-outlined">menu</span>
         </button>
       </div>
       {menu.display && (

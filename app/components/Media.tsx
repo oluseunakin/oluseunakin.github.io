@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-interface Media {
+export type Media = {
   url: string;
   ct: string;
 }
@@ -19,10 +19,10 @@ export const MediaComponent = (props: { sources: Media[] }) => {
 
   useEffect(() => {
     let t: NodeJS.Timeout | null = null
-    if (media) {
+    if (media && document.body.clientWidth < 623) {
       const length = media.length;
       if(length === 1) return
-      let nm = Array<HTMLDivElement>();
+      const nm = Array<HTMLDivElement>();
       let delay = 7000
       media.forEach((md, i) => {
         const content = md.firstElementChild

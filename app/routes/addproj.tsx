@@ -21,7 +21,7 @@ export const loader = () => {
 };
 
 export const action = async ({ request }: ActionArgs) => {
-  const contentTypes = Array<string>()
+  const contentTypes = Array<string>();
   const data = await unstable_parseMultipartFormData(
     request,
     unstable_composeUploadHandlers(
@@ -46,8 +46,8 @@ export const action = async ({ request }: ActionArgs) => {
           contentType,
         });
         const url = await getDownloadURL(storageRef);
-        contentTypes.push(contentType)
-        return url
+        contentTypes.push(contentType);
+        return url;
       },
       unstable_createMemoryUploadHandler()
     )
@@ -59,7 +59,7 @@ export const action = async ({ request }: ActionArgs) => {
   const techs = data.get("tech") as string;
   let tech: string | string[] = techs;
   const m = data.getAll("media");
-  const media = m.map((mm, i) => ({url: mm, ct: contentTypes[i]}))
+  const media = m.map((mm, i) => ({ url: mm, ct: contentTypes[i] }));
   if (!link.startsWith("https://")) link = `https://${link}`;
   if (techs.includes(",")) tech = techs.split(",");
   await set(databaseRef, { name, link, tech, media, description });
@@ -72,19 +72,17 @@ export default function AddProject() {
   return (
     <div className="addproj">
       <h1>Add Project</h1>
-      <div>
-        <Form method="post" encType="multipart/form-data">
-          <input placeholder="Project Name" name="name" />
-          <textarea
-            placeholder="Project Description"
-            name="description"
-          ></textarea>
-          <input placeholder="Project Link" name="link" />
-          <input placeholder="Technology used" name="tech" />
-          <input name="media" type="file" multiple />
-          <input type="submit" />
-        </Form>
-      </div>
+      <Form method="post" encType="multipart/form-data">
+        <input placeholder="Project Name" name="name" />
+        <textarea
+          placeholder="Project Description"
+          name="description"
+        ></textarea>
+        <input placeholder="Project Link" name="link" />
+        <input placeholder="Technology used" name="tech" />
+        <input name="media" type="file" multiple />
+        <input type="submit" />
+      </Form>
     </div>
   );
 }
