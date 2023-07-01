@@ -70,6 +70,7 @@ main {
   gap: 10px;
   overflow: hidden;
   padding: 30px 10px;
+  flex-wrap: wrap;
 }
 .pics > div {
   display: flex;
@@ -95,5 +96,8 @@ main {
   }
   header > p {
     margin: 7% 0;
+  }
+  img, video {
+    min-width: 16em;
   }
 }
