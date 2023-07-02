@@ -56,8 +56,11 @@ main {
   align-items: center;
   margin-bottom: 5%;
 }
+.project > div:first-of-type > div {
+  text-align: center;
+}
 .project > p {
-  padding-left: 5%;
+  padding: 0 3%;
 }
 .project h2 {
   text-align: center;
@@ -70,7 +73,6 @@ main {
   gap: 10px;
   overflow: hidden;
   padding: 30px 10px;
-  flex-wrap: wrap;
 }
 .pics > div {
   display: flex;
@@ -91,11 +93,14 @@ main {
   .menuitems {
     width: 20%;
   }
+  .pics {
+    flex-wrap: wrap;
+  }
   .pics > div {
     flex: 1;
   }
   header > p {
-    margin: 7% 0;
+    margin: 4% 0;
   }
   img, video {
     min-width: 16em;
