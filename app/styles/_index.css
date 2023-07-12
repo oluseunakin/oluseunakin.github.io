@@ -103,6 +103,6 @@ main {
     margin: 4% 0;
   }
   img, video {
-    min-width: 16em;
+    min-width: 25em;
   }
 }
