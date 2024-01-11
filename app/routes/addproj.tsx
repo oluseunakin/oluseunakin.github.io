@@ -16,10 +16,6 @@ export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: styles }];
 };
 
-export const loader = () => {
-  return null;
-};
-
 export const action = async ({ request }: ActionArgs) => {
   const contentTypes = Array<string>();
   const data = await unstable_parseMultipartFormData(
@@ -81,7 +77,7 @@ export default function AddProject() {
         <input placeholder="Project Link" name="link" />
         <input placeholder="Technology used" name="tech" />
         <input name="media" type="file" multiple />
-        <input type="submit" />
+        <button type="submit">Add Project</button>
       </Form>
     </div>
   );

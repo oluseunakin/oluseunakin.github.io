@@ -1,12 +1,13 @@
-import type { V2_MetaFunction} from "@remix-run/node";
-import { json } from "@remix-run/node";
-import { Link, useLoaderData } from "@remix-run/react";
+import type { V2_MetaFunction } from "@remix-run/node";
+import { defer } from "@remix-run/node";
+import { Await, Link, useLoaderData } from "@remix-run/react";
 import { ref, onValue } from "firebase/database";
 import { database } from "~/firebase";
 import styles from "../styles/_index.css";
 import { Menu } from "~/components/menu";
 import type { LinksFunction } from "@remix-run/react/dist/routeModules";
 import { MediaComponent } from "~/components/Media";
+import { Suspense } from "react";
 
 export const meta: V2_MetaFunction = () => {
   return [
@@ -27,61 +28,83 @@ export const loader = async () => {
     onValue(
       ref(database, "portfolio"),
       (snapshot) => {
-        resolve(snapshot.val());
+        return  resolve(snapshot.val());
       },
       (error) => {
         reject(error);
+        return null
       }
     );
-  }) 
-  const ap = await p
-  return json(ap)
+  });
+  return defer({ p });
 };
 
 export default function Index() {
-  const projects = useLoaderData<typeof loader>();
+  const { p } = useLoaderData<typeof loader>();
 
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      {projects && <Menu projects={projects} />}
-      <header>
-        <h1>Oluseun Akindoyin</h1>
-        <h4>Scroll to see amazing projects</h4>
-        <p>
-          Many of my projects are built using HTML, CSS, Javascript, Node Js,
-          Node Js Libraries and Frameworks (React, NextJS, Remix, Express) but
-          I'm aware and can develop in other languages like Dart, Go, Java and
-          Python
-        </p>
-      </header>
-      <main>
-        {projects &&
-          Object.keys(projects).map((k, i) => {
-            const project = projects[k] as any;
-            const { tech, media, name, link, description } = project;
-            return (
-              <div key={i} id={k} className="project">
+    <Suspense fallback={<div className="spinner"></div>}>
+      <Await resolve={p}>
+        {(p) =>
+          p && (
+            <>
+              <Menu projects={p} />
+              <header>
+                <h1>Oluseun Akindoyin</h1>
                 <div>
-                  <h2>{name}</h2>
-                  <div>
-                    {typeof tech === "string" ? (
-                      <code>{tech}</code>
-                    ) : (
-                      tech.map((t: string, i: number) => (
-                        <code key={i}>{t}</code>
-                      ))
-                    )}
-                  </div>
-                  <div>
-                    <Link to={link}>{link}</Link>
-                  </div>
+                  <em>Web, Mobile and Destop Programmer</em>
                 </div>
-                <p>{description}</p>
-                <MediaComponent sources={media} />
-              </div>
-            );
-          })}
-      </main>
-    </div>
+                <div>
+                  <b>Email: akindoyinoluseun@gmail.com</b>
+                </div>
+                <h2>Scroll to see amazing projects</h2>
+                <div>
+                  <p>
+                    I am a Computer Science and Engineering graduate of the
+                    great Obafemi Awolowo University. After a tough and
+                    turbulent adulthood, I found succor in chess and
+                    programming.
+                  </p>
+                  <p>
+                    Many of my projects are built using HTML, CSS, Javascript,
+                    Node Js, Node Js Libraries and Frameworks (React, NextJS,
+                    Remix, Express) but I'm aware and can develop in other
+                    languages like Dart, Go, Java and Python.
+                  </p>
+                </div>
+              </header>
+              <main>
+                {p &&
+                  Object.keys(p).map((k, i) => {
+                    const project = p[k] as any;
+                    const { tech, media, name, link, description } = project;
+                    return (
+                      <div key={i} id={k} className="project">
+                        <div>
+                          <h2>{name}</h2>
+                          <div>
+                            {typeof tech === "string" ? (
+                              <code>{tech}</code>
+                            ) : (
+                              tech.map((t: string, i: number) => (
+                                <code key={i}>{t}</code>
+                              ))
+                            )}
+                          </div>
+                          <div>
+                            <Link to={link}>{link}</Link>
+                          </div>
+                        </div>
+                        <p>{description}</p>
+                        <MediaComponent sources={media} />
+                      </div>
+                    );
+                  })}
+              </main>
+            </>
+          )
+        }
+      </Await>
+    </Suspense>
   );
 }

@@ -1,17 +1,29 @@
 .addproj {
   display: flex;
   flex-direction: column;
-  height: 97vh;
+  width: 70%;
   justify-content: center;
-  align-items: center;
+  margin: 0 auto;
   gap: 40px;
+}
+.addproj > h1 {
+  display: flex;
+  justify-content: center;
 }
 .addproj form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.addproj form * {
+.addproj form > * {
   text-align: center;
   padding: 10px;
+}
+.addproj > form > button {
+  width: max-content;
+  background-color: burlywood;
+  margin: 0 auto;
+}
+.addproj > form > textarea {
+  resize: none;
 }
