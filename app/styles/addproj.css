@@ -1,29 +1,44 @@
 .addproj {
-  display: flex;
-  flex-direction: column;
-  width: 70%;
-  justify-content: center;
-  margin: 0 auto;
-  gap: 40px;
+    background-color: steelblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 40%;
+    margin-left: auto;
+    margin-right: auto;
 }
 .addproj > h1 {
-  display: flex;
-  justify-content: center;
+    text-align: center;
+    width: max-content;
+    margin: 0 auto;
 }
-.addproj form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.addproj > form {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 70%;
+    margin: 20px auto;
 }
-.addproj form > * {
-  text-align: center;
-  padding: 10px;
+.addproj > form input {
+    padding: 10px;
+    border-radius: 5px;
+}
+.addproj > form > div {
+    display: flex;
+    gap: 5px;
 }
 .addproj > form > button {
-  width: max-content;
-  background-color: burlywood;
-  margin: 0 auto;
+    width: max-content;
+    padding: 5px;
+    background-color: brown;
+    margin: 0 auto;
+    color: white;
+    border-radius: 5px;
 }
-.addproj > form > textarea {
-  resize: none;
+
+@media screen and (min-width: 40em) {
+    .addproj {
+        width: 70%;
+    }
 }

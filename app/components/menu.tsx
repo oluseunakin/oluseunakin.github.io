@@ -5,8 +5,8 @@ export const Menu = (props: { projects: string[] }) => {
   const [menu, setMenu] = useState({ display: false, clicked: false });
 
   return (
-    <div>
-      <div className="menu">
+    <>
+      <div>
         <button
           onClick={(e) => {
             setMenu((prevMenu) => ({
@@ -20,7 +20,6 @@ export const Menu = (props: { projects: string[] }) => {
       </div>
       {menu.display && (
         <ul
-          className="menuitems"
           onClick={(e) => {
             setMenu((prevMenu) => ({
               display: !prevMenu.display,
@@ -35,6 +34,6 @@ export const Menu = (props: { projects: string[] }) => {
           ))}
         </ul>
       )}
-    </div>
+    </>
   );
 };

@@ -1,0 +1,106 @@
+header {
+  margin-bottom: 20px;
+}
+header > div:first-of-type {
+  display: flex;
+  justify-content: end;
+}
+header > ul {
+  background-color: rgb(0, 139, 139);
+  padding: 10px;
+  border-radius: 10px 0 10px 10px;
+  margin-top: 1px;
+  z-index: 50;
+  position: fixed;
+  left: 8px;
+  right: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+header > ul > li {
+  margin: 10px;
+}
+header > ul > li > a {
+  text-decoration: none;
+}
+header > h1 {
+  display: flex;
+  justify-content: center;
+  color: brown;
+  margin-bottom: 4px;
+}
+header > p {
+  display: flex;
+  justify-content: center;
+  margin: 4px;
+}
+header > div:last-of-type {
+  width: 80%;
+  margin: 20px auto;
+}
+header > div:last-of-type > p {
+  text-align: center;
+}
+.project {
+  color: white;
+  background-color: #4c4641;
+  margin: 20px auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 8px 16px rgba(0, 0, 0, 0.4);
+  padding: 5px 10px;
+}
+.project > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.project > div:first-child > h2 {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  color: #0ee7ade6;
+}
+.project > h3 {
+  width: max-content;
+  margin: 0 auto;
+}
+.project > div:first-child > div:last-child > h3 {
+    text-align: center;
+}
+.project > ul {
+  width: max-content;
+  margin: 0 auto;
+  text-align: center;
+}
+.project a {
+  color: #0ee7adbd;
+}
+.pics {
+  margin: 10px 0;
+  display: flex;
+  overflow: hidden;
+  gap: 10px;
+}
+.pics > div {
+  flex: 0 0 100%;
+  width: 100%;
+}
+
+@media screen and (min-width: 40em) {
+  .project {
+    width: 70%;
+  }
+  header > ul {
+    left: 65%;
+  }
+  .pics {
+    flex-wrap: wrap;
+  }
+  .pics > div {
+    flex: 1;
+  }
+  img, video {
+    min-width: 20em;
+  }
+}

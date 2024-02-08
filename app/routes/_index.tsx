@@ -3,7 +3,7 @@ import { defer } from "@remix-run/node";
 import { Await, Link, useLoaderData } from "@remix-run/react";
 import { ref, onValue } from "firebase/database";
 import { database } from "~/firebase";
-import styles from "../styles/_index.css";
+import styles from "../styles/index.css";
 import { Menu } from "~/components/menu";
 import type { LinksFunction } from "@remix-run/react/dist/routeModules";
 import { MediaComponent } from "~/components/Media";
@@ -28,11 +28,11 @@ export const loader = async () => {
     onValue(
       ref(database, "portfolio"),
       (snapshot) => {
-        return  resolve(snapshot.val());
+        return resolve(snapshot.val());
       },
       (error) => {
         reject(error);
-        return null
+        return null;
       }
     );
   });
@@ -48,22 +48,20 @@ export default function Index() {
         {(p) =>
           p && (
             <>
-              <Menu projects={p} />
               <header>
+                <Menu projects={p} />
                 <h1>Oluseun Akindoyin</h1>
-                <div>
+                <p>
                   <em>Web, Mobile and Destop Programmer</em>
-                </div>
-                <div>
+                </p>
+                <p>
                   <b>Email: akindoyinoluseun@gmail.com</b>
-                </div>
-                <h2>Scroll to see amazing projects</h2>
+                </p>
                 <div>
                   <p>
                     I am a Computer Science and Engineering graduate of the
-                    great Obafemi Awolowo University. After a tough and
-                    turbulent adulthood, I found succor in chess and
-                    programming.
+                    Obafemi Awolowo University Nigeria and i enjoy playing
+                    chess.
                   </p>
                   <p>
                     Many of my projects are built using HTML, CSS, Javascript,
@@ -77,24 +75,36 @@ export default function Index() {
                 {p &&
                   Object.keys(p).map((k, i) => {
                     const project = p[k] as any;
-                    const { tech, media, name, link, description } = project;
+                    const { tech, media, name, link, features, description } =
+                      project;
                     return (
                       <div key={i} id={k} className="project">
                         <div>
                           <h2>{name}</h2>
                           <div>
-                            {typeof tech === "string" ? (
-                              <code>{tech}</code>
-                            ) : (
-                              tech.map((t: string, i: number) => (
-                                <code key={i}>{t}</code>
-                              ))
-                            )}
-                          </div>
-                          <div>
                             <Link to={link}>{link}</Link>
                           </div>
+                          <div>
+                            <h3>Tech stack:</h3>
+                            <ul>
+                              {tech.map((t: string, i: number) => (
+                                <li key={i}>
+                                  <code>{t}</code>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
                         </div>
+                        {features && (
+                          <>
+                            <h3>Features</h3>
+                            <ul>
+                              {features.map((feature: string, i: number) => (
+                                <li key={i}><h4>{feature}</h4></li>
+                              ))}
+                            </ul>
+                          </>
+                        )}
                         <p>{description}</p>
                         <MediaComponent sources={media} />
                       </div>
