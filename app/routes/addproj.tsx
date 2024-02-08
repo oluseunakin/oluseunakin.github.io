@@ -75,7 +75,9 @@ export default function AddProject() {
       <Form method="post" encType="multipart/form-data">
         <input placeholder="Project Name" name="name" />
         <div>
-          <input placeholder="Features" name="features" value={features} />
+          <input placeholder="Features" name="features" value={features} onChange={(e) => {
+            setFeatures([e.target.value])
+          }} />
           <button
             onClick={() => {
               addMore(true);
