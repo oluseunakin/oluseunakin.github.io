@@ -58,7 +58,7 @@ export const action = async ({ request }: ActionArgs) => {
   const media = m.map((mm, i) => ({ url: mm, ct: contentTypes[i] }));
   if (!link.startsWith("https://")) link = `https://${link}`;
   if (techs.includes(",")) tech = techs.split(",");
-  else tech = [techs]
+  else tech = [techs];
   await set(databaseRef, { name, link, tech, media, features });
   return redirect("/");
 };
@@ -67,35 +67,40 @@ export default function AddProject() {
   const navigation = useNavigation();
   const [more, addMore] = useState(false);
   const [features, setFeatures] = useState<string[]>([]);
+  const [f, setF] = useState("");
 
   if (navigation.state === "submitting") return <div className="spinner"></div>;
   return (
     <div className="addproj">
       <h1>Add Project</h1>
       <Form method="post" encType="multipart/form-data">
+        <input type="hidden" name="features" value={features} />
         <input placeholder="Project Name" name="name" />
         <div>
-          <input placeholder="Features" name="features" value={features} onChange={(e) => {
-            setFeatures([e.target.value])
-          }} />
+          <input
+            placeholder="Features"
+            value={f}
+            onChange={(e) => {
+              setF(e.target.value);
+            }}
+          />
           <button
-            onClick={() => {
+            onClick={(e) => {
               addMore(true);
+              setFeatures([...features, f]);
+              setF("")
+              e.preventDefault();
             }}
           >
             <span className="material-symbols-outlined">add</span>
           </button>
         </div>
-        {more && (
-          <input
-            placeholder="More features, press enter to add"
-            onKeyUp={(e) => {
-              if (e.key === "Enter") {
-                setFeatures([...features, e.currentTarget.value]);
-                addMore(false);
-              }
-            }}
-          />
+        {more && features.length > 0 && (
+          <ul>
+            {features.map((feature, i) => (
+              <li key={i}>{feature}</li>
+            ))}
+          </ul>
         )}
         <input placeholder="Project Link" name="link" />
         <input placeholder="Technology used" name="tech" />
