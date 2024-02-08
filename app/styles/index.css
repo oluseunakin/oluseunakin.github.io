@@ -42,7 +42,7 @@ header > div:last-of-type > p {
 }
 .project {
   color: white;
-  background-color: #4c4641;
+  background-color: #36322f;
   margin: 20px auto;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 8px 16px rgba(0, 0, 0, 0.4);
   padding: 5px 10px;
@@ -73,6 +73,9 @@ header > div:last-of-type > p {
   margin: 20px auto;
   margin-top: 2px;
   text-align: center;
+}
+.project > ul > li {
+    margin: 2px;
 }
 .project a {
   color: #0ee7adbd;
