@@ -51,11 +51,12 @@ export const action = async ({ request }: ActionArgs) => {
   const name = data.get("name");
   const databaseRef = Ref(database, `portfolio/${name}`);
   let link = data.get("link") as string;
-  const features = data.get("features");
+  const features = JSON.parse(data.get("features") as string);
   const techs = data.get("tech") as string;
   let tech: string[] = [];
   const m = data.getAll("media");
-  const media = m.map((mm, i) => ({ url: mm, ct: contentTypes[i] }));
+  const media =
+    m.length > 0 ? m.map((mm, i) => ({ url: mm, ct: contentTypes[i] })) : [];
   if (!link.startsWith("https://")) link = `https://${link}`;
   if (techs.includes(",")) tech = techs.split(",");
   else tech = [techs];
@@ -69,12 +70,17 @@ export default function AddProject() {
   const [features, setFeatures] = useState<string[]>([]);
   const [f, setF] = useState("");
 
-  if (navigation.state === "submitting") return <div className="spinner"></div>;
+  if (navigation.state === "submitting")
+    return (
+      <div className="spinner">
+        <div></div>
+      </div>
+    );
   return (
     <div className="addproj">
       <h1>Add Project</h1>
       <Form method="post" encType="multipart/form-data">
-        <input type="hidden" name="features" value={features} />
+        <input type="hidden" name="features" value={JSON.stringify(features)} />
         <input placeholder="Project Name" name="name" />
         <div>
           <input
@@ -88,7 +94,7 @@ export default function AddProject() {
             onClick={(e) => {
               addMore(true);
               setFeatures([...features, f]);
-              setF("")
+              setF("");
               e.preventDefault();
             }}
           >

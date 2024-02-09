@@ -1,44 +1,44 @@
 .addproj {
-    background-color: steelblue;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px;
-    margin-top: 40%;
-    margin-left: auto;
-    margin-right: auto;
+  background-color: steelblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 40%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .addproj > h1 {
-    text-align: center;
-    width: max-content;
-    margin: 0 auto;
+  text-align: center;
+  width: max-content;
+  margin: 0 auto;
 }
 .addproj > form {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    width: 70%;
-    margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 70%;
+  margin: 20px auto;
 }
 .addproj > form input {
-    padding: 10px;
-    border-radius: 5px;
+  padding: 10px;
+  border-radius: 5px;
 }
 .addproj > form > div {
-    display: flex;
-    gap: 5px;
+  display: flex;
+  gap: 5px;
 }
 .addproj > form > button {
-    width: max-content;
-    padding: 5px;
-    background-color: brown;
-    margin: 0 auto;
-    color: white;
-    border-radius: 5px;
+  width: max-content;
+  padding: 5px;
+  background-color: brown;
+  margin: 0 auto;
+  color: white;
+  border-radius: 5px;
 }
 
 @media screen and (min-width: 40em) {
-    .addproj {
-        width: 70%;
-    }
+  .addproj {
+    width: 70%;
+  }
 }

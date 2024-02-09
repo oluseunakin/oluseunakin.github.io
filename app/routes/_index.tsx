@@ -85,7 +85,7 @@ export default function Index() {
                             <Link to={link}>{link}</Link>
                           </div>
                           <div>
-                            <h3>Tech stack:</h3>
+                            <h3>Tech stack</h3>
                             <ul>
                               {tech.map((t: string, i: number) => (
                                 <li key={i}>
